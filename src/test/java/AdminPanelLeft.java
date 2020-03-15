@@ -37,6 +37,14 @@ public class AdminPanelLeft {
 
     }
 
+    @Test
+    public void getSticker(){
+        driver.get("http://localhost/litecart");
+        List<WebElement> product = driver.findElements(By.xpath("//*[contains(@class, 'product')]"));
+        List<WebElement> sticker = driver.findElements(By.xpath("//*[contains(@class, 'sticker')]"));
+        if (product.size() == sticker.size()) throw new Error();
+    }
+
     @After
     public void stop() {
         driver.quit();
